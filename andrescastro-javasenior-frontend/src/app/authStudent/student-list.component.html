@@ -1,0 +1,22 @@
+<app-menu></app-menu>
+<div class="container">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">rut</th>
+        <th scope="col">Name</th>
+        <th scope="col">lastName</th>
+        <th scope="col">age</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students">
+        <td>{{student.rut}}</td>
+        <td>{{student.name}}</td>
+        <td>{{student.lastName}}</td>
+        <td>{{student.age}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

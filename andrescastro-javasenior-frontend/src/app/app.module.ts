@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CourseListComponent } from './course-list/course-list.component';
+import { StudentListComponent } from './authStudent/student-list.component';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { NewCourseComponent } from './course-new/new-course.component';
 import { EditCourseComponent } from './edit-course/edit-course.component';
@@ -30,6 +31,7 @@ import {Ng2Rut} from 'ng2-rut';
     CourseDetailComponent,
     NewCourseComponent,
     EditCourseComponent,
+    StudentListComponent,
     LoginComponent,
     RegisterComponent,
     MenuComponent,

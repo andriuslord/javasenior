@@ -15,7 +15,7 @@
       <tr *ngFor="let course of courses">
         <td>{{course.id}}</td>
         <td>{{course.name}}</td>
-        <td>{{course.code}}€</td>
+        <td>{{course.code}}</td>
         <td><button class="btn btn-outline-primary" routerLink="/detail/{{course.id}}"><i class="far fa-eye"></i> See</button></td>
         <td *ngIf="isAdmin"><button class="btn btn-outline-warning" routerLink="/edit/{{course.id}}"><i class="far fa-edit"></i> Edit</button></td>
         <td *ngIf="isAdmin"><button class="btn btn-outline-danger" (click)="delete(course.id)"><i class="far fa-trash-alt"></i> Delete</button></td>

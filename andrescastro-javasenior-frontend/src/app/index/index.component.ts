@@ -20,6 +20,7 @@ export class IndexComponent implements OnInit {
     } else {
       this.isLogged = false;
       this.nameUser = '';
+
     }
   }
 
