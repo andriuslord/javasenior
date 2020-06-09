@@ -11,7 +11,7 @@ import { EditCourseComponent } from './edit-course/edit-course.component';
 import { interceptorProvider } from './interceptors/prod-interceptor.service';
 
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 // external
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -37,15 +37,16 @@ import {Ng2Rut} from 'ng2-rut';
     MenuComponent,
     IndexComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    ToastrModule.forRoot(),
-    HttpClientModule,
-    FormsModule,
-    Ng2Rut
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        ToastrModule.forRoot(),
+        HttpClientModule,
+        FormsModule,
+        Ng2Rut,
+        ReactiveFormsModule
+    ],
   providers: [interceptorProvider],
   bootstrap: [AppComponent]
 })
