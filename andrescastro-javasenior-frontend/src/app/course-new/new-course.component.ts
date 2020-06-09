@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { CourseService } from '../service/course.service';
-import { AppService } from '../service/app.services';
-import { Course } from '../models/course';
-import { ToastrService } from 'ngx-toastr';
+import {Component, OnInit} from '@angular/core';
+import {CourseService} from '../service/course.service';
+import {AppService} from '../service/app.services';
+import {Course} from '../models/course';
+import {ToastrService} from 'ngx-toastr';
 import {AppCtrl} from "../controller/app.vacante.ctrl";
-import { Router } from '@angular/router';
-import {FormBuilder, FormGroup, Validators} from "@angular/core";
+import {Router} from '@angular/router';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-new-course',
@@ -29,7 +29,8 @@ export class NewCourseComponent implements OnInit {
     private appService: AppService,
     private toastr: ToastrService,
     private router: Router
-    ) { }
+  ) {
+  }
 
   get f() {
     return this.createForm.controls;
@@ -55,6 +56,7 @@ export class NewCourseComponent implements OnInit {
       this.createForm.controls.nameUserStudent.setValue(localStorage.getItem("studentNameUser"))
     }
   }
+
   async onSubmit() {
     let reqStudent;
     if (this.studentLocalStorage) {
@@ -107,7 +109,7 @@ export class NewCourseComponent implements OnInit {
       },
       err => {
         this.toastr.error(err.error.mensaje, 'Fail', {
-          timeOut: 3000,  positionClass: 'toast-top-center',
+          timeOut: 3000, positionClass: 'toast-top-center',
         });
         // this.router.navigate(['/']);
       }
