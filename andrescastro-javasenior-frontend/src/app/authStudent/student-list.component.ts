@@ -20,7 +20,7 @@ export class StudentListComponent implements OnInit {
 
   ngOnInit() {
     this.loadStudents();
-  }
+    }
 
   loadStudents(): void {
     this.studentService.list().subscribe(

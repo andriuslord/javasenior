@@ -86,50 +86,51 @@ public class AuthController {
         return new ResponseEntity(list, HttpStatus.OK);
     }
 
-    @PostMapping(path = "/create", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public GenericWrapper<Course> saveCourse(@RequestBody RequestWrapper requestWrapper) {
-  // public GenericWrapper<Course>  create(@RequestBody Course course, Student student) {
-
-
-        Course course = requestWrapper.getCourse();
-        Student student = requestWrapper.getStudent();
-        System.out.println("course = " + course.getName() + ", student = " + student.getName());
-        GenericWrapper<Course> wrapper = new GenericWrapper<>();
-        try {
-            setResponse(wrapper, this.studentService.saveCourse(course, student));
-            return wrapper;
-        } catch (Exception e) {
-            setResponse(wrapper, e);
-            return wrapper;
-        }
-    }
-    public <T> void setResponse(GenericWrapper<T> wrapper, Exception e){
-        wrapper.setErrorCode("-99");
-        wrapper.setErrorMessage("Ocurrio un error inesperado. Causa : " + e);
-    }
-    public <T> void setResponse(GenericWrapper<T> wrapper, T o){
-        wrapper.setData(o);
-    }
+//    @PostMapping(path = "/create", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+//    public GenericWrapper<Course> saveCourse(@RequestBody RequestWrapper requestWrapper) {
+//  // public GenericWrapper<Course>  create(@RequestBody Course course, Student student) {
+//
+//
+//        Course course = requestWrapper.getCourse();
+//        Student student = requestWrapper.getStudent();
+//        System.out.println("course = " + course.getName() + ", student = " + student.getName());
+//        GenericWrapper<Course> wrapper = new GenericWrapper<>();
+//        try {
+//            setResponse(wrapper, this.studentService.saveCourse(course, student));
+//            return wrapper;
+//        } catch (Exception e) {
+//            setResponse(wrapper, e);
+//            return wrapper;
+//        }
+//    }
+//    public <T> void setResponse(GenericWrapper<T> wrapper, Exception e){
+//        wrapper.setErrorCode("-99");
+//        wrapper.setErrorMessage("Ocurrio un error inesperado. Causa : " + e);
+//    }
+//    public <T> void setResponse(GenericWrapper<T> wrapper, T o){
+//        wrapper.setData(o);
+//    }
 
     //    @PostMapping(path = "/saveProducto", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 //    public GenericWrapper<Product>  saveProducto(@RequestBody Product product) {
 //
 //    }
-//    @PostMapping("/create")
-//    public ResponseEntity<?> create(@RequestBody CourseDto courseDto, JwtDto jwtDto){
-//        if(StringUtils.isBlank(courseDto.getName()))
-//            return new ResponseEntity(new message("the name is required"), HttpStatus.BAD_REQUEST);
-//        if(StringUtils.isBlank(courseDto.getCode()))
-//            return new ResponseEntity(new message("the code is required"), HttpStatus.BAD_REQUEST);
-//        if(courseService.existsByName(courseDto.getName()))
-//            return new ResponseEntity(new message("that name already exists"), HttpStatus.BAD_REQUEST);
-//        Course course = new Course(courseDto.getName(), courseDto.getCode());
-//       // getNameUser() { nameUser;
-//
-//        courseService.save(course);
-//        this.studentService.saveCourse(course, jwtDto);
-//
-//        return new ResponseEntity(new message("created course"), HttpStatus.OK);
+    @PostMapping(path = "/create", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<?> create(@RequestBody CourseDto courseDto, Student student ) {
+        if (StringUtils.isBlank(courseDto.getName()))
+            return new ResponseEntity(new message("the name is required"), HttpStatus.BAD_REQUEST);
+        if (StringUtils.isBlank(courseDto.getCode()))
+            return new ResponseEntity(new message("the code is required"), HttpStatus.BAD_REQUEST);
+        if (courseService.existsByName(courseDto.getName()))
+            return new ResponseEntity(new message("that name already exists"), HttpStatus.BAD_REQUEST);
+        Course course = new Course(courseDto.getName(), courseDto.getCode());
+        // getNameUser() { nameUser;
+
+        courseService.save(course);
+        this.studentService.saveCourse(course, student);
+
+        return new ResponseEntity(new message("created course"), HttpStatus.OK);
+    }
 //
 //////        newStudent.setValues
 ////        list<Student> student = new ArrayList<>();

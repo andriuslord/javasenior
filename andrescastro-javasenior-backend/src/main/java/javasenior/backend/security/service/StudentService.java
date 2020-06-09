@@ -2,6 +2,7 @@ package javasenior.backend.security.service;
 
 import javasenior.backend.entity.Course;
 import javasenior.backend.repository.CourseRepository;
+import javasenior.backend.security.dto.NewStudent;
 import javasenior.backend.security.entity.Student;
 import javasenior.backend.security.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;

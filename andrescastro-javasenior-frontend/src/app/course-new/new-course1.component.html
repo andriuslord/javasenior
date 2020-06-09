@@ -6,33 +6,6 @@
 
 
       <div class="input" *ngIf="!studentLocalStorage">
-        <label>Rut</label>
-        <input id="rutClienteId" class="texto" maxlength="13" placeholder="rut cliente" type="text" formControlName="rutStudent"
-               formatRut>
-        <div *ngIf="f.rutStudent.invalid && (f.rutStudent.dirty || f.rutStudent.touched)">
-          <div *ngIf="f.rutStudent.errors.required" class="texto-apoyo error">enter your rut</div>
-          <div *ngIf="f.rutStudent.errors.invalidRut" class="texto-apoyo error">invaid Rut</div>
-        </div>
-      </div>
-
-      <div class="inputs-2col" *ngIf="!studentLocalStorage">
-        <div class="input">
-          <label>Name</label>
-          <input class="texto" placeholder="" type="text" formControlName="nameStudent">
-          <div *ngIf="f.nameStudent.invalid && (f.nameStudent.dirty || f.nameStudent.touched)">
-            <div *ngIf="f.nameStudent.errors.required" class="texto-apoyo error">Debe ingresar su nombre completo</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="inputs-2col" *ngIf="!studentLocalStorage">
-        <div class="input">
-          <label>userName</label>
-          <input class="texto" placeholder="" type="text" formControlName="userNameStudent">
-          <div *ngIf="f.userNameStudent.invalid && (f.userNameStudent.dirty || f.userNameStudent.touched)">
-            <div *ngIf="f.userNameStudent.errors.required" class="texto-apoyo error">Debe ingresar su cuenta</div>
-          </div>
-        </div>
       </div>
 
       <div class="input">
@@ -48,7 +21,7 @@
       </div>
 
       <div class="input boton max-width-200">
-        <button class="primario" [disabled]="createForm.invalid" type="submit">Create Curso</button>
+        <button class="primario"  type="submit">Create Curso</button>
       </div>
       <div class="input boton max-width-200" *ngIf="errorCreateCourse">
         <div>
