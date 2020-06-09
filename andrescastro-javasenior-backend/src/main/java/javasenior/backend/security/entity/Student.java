@@ -1,7 +1,11 @@
 package javasenior.backend.security.entity;
+import javasenior.backend.entity.Course;
+
 import javax.validation.constraints.Min;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Student {
@@ -22,11 +26,9 @@ public class Student {
     private String nameUser;
     @NotNull
     private String password;
-//    @NotNull
-//    @ManyToMany(fetch = FetchType.EAGER)
-//    @JoinTable(name = "usuario_rol", joinColumns = @JoinColumn(name = "usuario_id"),
-//    inverseJoinColumns = @JoinColumn(name = "rol_id"))
-//    private Set<Rol> roles = new HashSet<>();
+    @OneToMany(cascade={CascadeType.PERSIST, CascadeType.MERGE,
+            CascadeType.REFRESH}, orphanRemoval=true)
+    private List<Course> courses = new ArrayList<>();
 
     public Student() {
     }
@@ -98,11 +100,11 @@ public class Student {
         this.password = password;
     }
 
-//    public Set<Rol> getRoles() {
-//        return roles;
-//    }
-//
-//    public void setRoles(Set<Rol> roles) {
-//        this.roles = roles;
-//    }
+    public List<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
+    }
 }

@@ -17,8 +17,8 @@ public class MainStudent implements UserDetails {
     public MainStudent(String rut,String name,String lastName,int age, String nameUser, String password) {
         this.rut = rut;
         this.name = name;
-        this.lastName = lastName;
         this.age = age;
+        this.lastName = lastName;
         this.nameUser = nameUser;
         this.password = password;
 

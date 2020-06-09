@@ -9,6 +9,7 @@ import { Course } from '../models/course';
 export class CourseService {
 
   courseURL = 'http://localhost:9090/course/';
+  createCourseURL = 'http://localhost:9090/auth/';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -25,7 +26,7 @@ export class CourseService {
   }
 
   public save(course: Course): Observable<any> {
-    return this.httpClient.post<any>(this.courseURL + 'create', course);
+    return this.httpClient.post<any>(this.createCourseURL + 'create', course);
   }
 
   public update(id: number, course: Course): Observable<any> {

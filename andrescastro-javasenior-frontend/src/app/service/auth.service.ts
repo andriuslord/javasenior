@@ -26,5 +26,6 @@ export class AuthService {
     public list(): Observable<NewStudent[]> {
       return this.httpClient.get<NewStudent[]>(this.authURL + 'list');
 
+
   }
 }

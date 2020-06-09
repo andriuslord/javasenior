@@ -2,10 +2,14 @@ package javasenior.backend.service;
 
 import javasenior.backend.entity.Course;
 import javasenior.backend.repository.CourseRepository;
+import javasenior.backend.security.entity.MainStudent;
+import javasenior.backend.security.entity.Student;
+import javasenior.backend.security.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,7 +18,10 @@ import java.util.Optional;
 public class CourseService {
 
     @Autowired
-    CourseRepository courseRepository;
+    private CourseRepository courseRepository;
+
+    @Autowired
+    private StudentRepository studentRepository;
 
     public List<Course> list(){
         return courseRepository.findAll();
@@ -43,4 +50,7 @@ public class CourseService {
     public boolean existsByName(String name){
         return courseRepository.existsByName(name);
     }
+
+
+
 }
