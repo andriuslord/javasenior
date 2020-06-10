@@ -32,15 +32,11 @@ export class NewCourseComponent implements OnInit {
   ) {
   }
 
-
   ngOnInit() {
-
-    this.onCreate();
-
+    this.listar();
   }
-  onCreate(): void {
 
-    const course = new Course(this.name, this.code);
+  listar(): void {
     this.studentService.list().subscribe(
       data => {
         this.students = data;
@@ -49,9 +45,12 @@ export class NewCourseComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+
+  crearCurso(): void {
+
+    const course = new Course(this.name, this.code);
     this.courseService.save(course).subscribe(
-
-
       data => {
         this.toastr.success('Created Course', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
@@ -64,7 +63,6 @@ export class NewCourseComponent implements OnInit {
         });
         // this.router.navigate(['/']);
       }
-
     );
 
   }
