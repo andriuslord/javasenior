@@ -25,8 +25,8 @@ export class CourseService {
     return this.httpClient.get<Course>(this.courseURL + `detailname/${name}`);
   }
 
-  public save(course: Course): Observable<any> {
-    return this.httpClient.post<any>(this.createCourseURL + 'create', course);
+  public save(req): Observable<any> {
+    return this.httpClient.post<any>(this.createCourseURL + 'create', req);
   }
 
   public update(id: number, course: Course): Observable<any> {

@@ -1,4 +1,4 @@
-import {Component, OnInit,Input} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {CourseService} from '../service/course.service';
 import {AppService} from '../service/app.services';
 import {Course} from '../models/course';
@@ -17,10 +17,10 @@ import {AuthService} from "../service/auth.service";
 })
 export class NewCourseComponent implements OnInit {
 
-  @Input () students: NewStudent[];
+  @Input() students: NewStudent[];
   name = '';
   code = '';
-  rut  = '';
+  rut = '';
 
   constructor(
     private studentService: AuthService,
@@ -49,8 +49,16 @@ export class NewCourseComponent implements OnInit {
 
   crearCurso(): void {
 
+    let studs = this.students;
     const course = new Course(this.name, this.code);
-    this.courseService.save(course).subscribe(
+
+    let req = {
+      course: course,
+      students: studs
+    }
+
+
+    this.courseService.save(req).subscribe(
       data => {
         this.toastr.success('Created Course', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
