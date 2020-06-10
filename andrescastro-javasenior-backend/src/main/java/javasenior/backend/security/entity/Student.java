@@ -99,7 +99,11 @@ public class Student {
         this.password = password;
     }
 
-    @ManyToOne
+//    @ManyToOne
+    @ManyToOne(
+            fetch = FetchType.LAZY
+    )
+    @JoinColumn(name = "course_id")
     private Course course;
 
     public Course getCourse() {
