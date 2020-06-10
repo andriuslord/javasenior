@@ -50,6 +50,11 @@ public class StudentService {
 //        courses.add(course);
         course.setStudents(student);
 
+        for (Student studs: student) {
+            studs.setCourse(course);
+            this.save(studs);
+        }
+        
         courseRepository.save(course);
       //  studentBuyer.getCourses().addAll(courses);
 
