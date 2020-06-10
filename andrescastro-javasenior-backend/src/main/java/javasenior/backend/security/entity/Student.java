@@ -1,5 +1,6 @@
 package javasenior.backend.security.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import javasenior.backend.entity.Course;
 
 import javax.validation.constraints.Min;
@@ -100,6 +101,7 @@ public class Student {
     }
 
 //    @ManyToOne
+    @JsonManagedReference
     @ManyToOne(
             fetch = FetchType.LAZY
     )

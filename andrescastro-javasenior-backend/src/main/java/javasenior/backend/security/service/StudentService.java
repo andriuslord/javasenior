@@ -54,7 +54,7 @@ public class StudentService {
             studs.setCourse(course);
             this.save(studs);
         }
-        
+
         courseRepository.save(course);
       //  studentBuyer.getCourses().addAll(courses);
 

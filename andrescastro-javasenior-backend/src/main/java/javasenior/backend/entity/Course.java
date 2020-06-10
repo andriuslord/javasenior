@@ -1,5 +1,6 @@
 package javasenior.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import javasenior.backend.security.entity.Student;
 
 import javax.persistence.*;
@@ -45,6 +46,7 @@ public class Course {
 //            CascadeType.REFRESH}, orphanRemoval=true)
 //    @OneToMany(mappedBy = "course")
 
+    @JsonBackReference
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "course")
     private List<Student> students;
 
