@@ -1,17 +1,16 @@
 package javasenior.backend.security.entity;
-import javasenior.backend.entity.Course;
 
 import javax.validation.constraints.Min;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class Student {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @Column(unique=true)
     @NotNull
     private String rut;
     @NotNull
