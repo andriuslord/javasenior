@@ -1,8 +1,6 @@
 package javasenior.backend.security.entity;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.*;
 import javasenior.backend.entity.Course;
 
 import javax.validation.constraints.Min;
@@ -11,6 +9,7 @@ import javax.validation.constraints.NotNull;
 import java.util.Collection;
 
 @Entity
+
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id"
@@ -109,13 +108,14 @@ public class Student {
     @ManyToOne(
             fetch = FetchType.LAZY
     )
+    @JsonBackReference
     @JoinColumn(name = "course_id")
     private Course course;
 
     public Course getCourse() {
         return course;
     }
-
+    @JsonBackReference
     public void setCourse(Course course) {
         this.course = course;
     }

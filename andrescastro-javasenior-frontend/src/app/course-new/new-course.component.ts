@@ -3,7 +3,6 @@ import {CourseService} from '../service/course.service';
 import {AppService} from '../service/app.services';
 import {Course} from '../models/course';
 import {ToastrService} from 'ngx-toastr';
-import {AppCtrl} from "../controller/app.vacante.ctrl";
 import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {NewStudent} from "../models/new-student";
@@ -26,7 +25,6 @@ export class NewCourseComponent implements OnInit {
     private studentService: AuthService,
     private formBuilder: FormBuilder,
     private courseService: CourseService,
-    private appService: AppService,
     private toastr: ToastrService,
     private router: Router
   ) {

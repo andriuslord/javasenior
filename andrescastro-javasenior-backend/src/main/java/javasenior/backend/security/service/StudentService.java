@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,7 +49,10 @@ public class StudentService {
 //        List<Student> studentBuyer = this.studentRepository.findByName(student);
 //        List<Course> courses = new ArrayList<>();
 //        courses.add(course);
-        course.setStudents(student);
+
+
+//       student.subList(0, student.size()-1).clear();
+//        course.setStudents(student);
 
         for (Student studs: student) {
             studs.setCourse(course);

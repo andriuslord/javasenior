@@ -29,8 +29,7 @@ export class AppService {
           }
         );
     });
-    return promise;
-  }
+    return promise;  }
 
   create(req): Promise<any> {
     const promise = new Promise((resolve, reject) => {

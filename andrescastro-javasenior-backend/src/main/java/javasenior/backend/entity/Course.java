@@ -1,9 +1,6 @@
 package javasenior.backend.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerator;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.*;
 import javasenior.backend.security.entity.Student;
 
 import javax.persistence.*;
@@ -52,8 +49,11 @@ public class Course {
 //    @OneToMany(cascade={CascadeType.PERSIST, CascadeType.MERGE,
 //            CascadeType.REFRESH}, orphanRemoval=true)
 //    @OneToMany(mappedBy = "course")
-    
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "course")
+@JsonProperty
+@OneToMany(mappedBy = "course", fetch=FetchType.EAGER)
+    //@OneToMany(cascade = CascadeType.ALL, mappedBy = "course")
+@JsonBackReference
+@JsonIgnore
     private List<Student> students;
 
     public Course() {

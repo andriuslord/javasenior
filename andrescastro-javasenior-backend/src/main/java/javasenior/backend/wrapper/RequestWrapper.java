@@ -1,11 +1,12 @@
 package javasenior.backend.wrapper;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import javasenior.backend.entity.Course;
 import javasenior.backend.security.entity.Student;
 
 import java.util.List;
 
-
+@JsonDeserialize
 public class RequestWrapper {
 
     List<Student> student;
