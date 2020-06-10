@@ -43,12 +43,14 @@ public class StudentService {
     }
 
     public Course saveCourse(Course course, List<Student> student) {
-        this.courseRepository.save(course);
+//        this.courseRepository.save(course);
      //   this.studentRepository.save(student);
-        List<Student> studentBuyer = this.studentRepository.findByName(student);
-        List<Course> courses = new ArrayList<>();
-        courses.add(course);
+//        List<Student> studentBuyer = this.studentRepository.findByName(student);
+//        List<Course> courses = new ArrayList<>();
+//        courses.add(course);
         course.setStudents(student);
+
+        courseRepository.save(course);
       //  studentBuyer.getCourses().addAll(courses);
 
         return course;
