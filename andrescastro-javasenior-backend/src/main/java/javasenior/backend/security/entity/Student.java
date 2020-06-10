@@ -1,6 +1,8 @@
 package javasenior.backend.security.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import javasenior.backend.entity.Course;
 
 import javax.validation.constraints.Min;
@@ -9,6 +11,10 @@ import javax.validation.constraints.NotNull;
 import java.util.Collection;
 
 @Entity
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id"
+)
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -100,8 +106,6 @@ public class Student {
         this.password = password;
     }
 
-//    @ManyToOne
-    @JsonManagedReference
     @ManyToOne(
             fetch = FetchType.LAZY
     )

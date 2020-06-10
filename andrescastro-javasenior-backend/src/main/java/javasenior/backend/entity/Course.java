@@ -1,6 +1,9 @@
 package javasenior.backend.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerator;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import javasenior.backend.security.entity.Student;
 
 import javax.persistence.*;
@@ -9,6 +12,10 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id"
+)
 public class Course {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -45,8 +52,7 @@ public class Course {
 //    @OneToMany(cascade={CascadeType.PERSIST, CascadeType.MERGE,
 //            CascadeType.REFRESH}, orphanRemoval=true)
 //    @OneToMany(mappedBy = "course")
-
-    @JsonBackReference
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "course")
     private List<Student> students;
 
