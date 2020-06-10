@@ -99,7 +99,18 @@ public class Student {
         this.password = password;
     }
 
-//    @OneToMany(mappedBy = "students")
+    @ManyToOne
+    private Course course;
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
+    //    @OneToMany(mappedBy = "students")
 //    private Collection<Course> course;
 //
 //    public Collection<Course> getCourse() {
