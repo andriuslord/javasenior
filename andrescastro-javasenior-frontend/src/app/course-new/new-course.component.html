@@ -1,25 +1,6 @@
 <app-menu></app-menu>
 <div class="container">
   <form (ngSubmit)="crearCurso()" novalidate #f="ngForm">
-    <table class="table">
-      <span class="border border-primary"></span>
-      <thead class="thead-dark">
-      <tr>
-        <th scope="col">rut</th>
-        <th scope="col">NameStudent</th>
-        <th scope="col">lastName</th>
-        <th scope="col">age</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let student of student">
-        <td>{{student.rut}}</td>
-        <td>{{student.name}}</td>
-        <td>{{student.lastName}}</td>
-        <td>{{student.age}}</td>
-      </tr>
-      </tbody>
-    </table>
     <div class="row mt-5">
       <div class="col-md-4 mx-auto">
 
