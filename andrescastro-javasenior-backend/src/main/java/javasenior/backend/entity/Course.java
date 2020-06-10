@@ -4,6 +4,7 @@ import javasenior.backend.security.entity.Student;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -11,13 +12,41 @@ public class Course {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
+
     private String name;
+
     @Column(length = 4)
     private String code;
-    @OneToMany(cascade={CascadeType.PERSIST, CascadeType.MERGE,
-            CascadeType.REFRESH}, orphanRemoval=true)
-    private List<Student> students = new ArrayList<>();
 
+//    @ManyToMany(fetch = FetchType.LAZY)
+//    @JoinTable(
+//            name = "comanda_pizza",
+//            joinColumns = { @JoinColumn(name = "user_id") },
+//            inverseJoinColumns = { @JoinColumn(name = "pizza_id") }
+//    )
+
+//    @OneToMany(cascade={CascadeType.PERSIST, CascadeType.MERGE,
+//            CascadeType.REFRESH}, orphanRemoval=true)
+
+//    @ManyToMany(fetch = FetchType.LAZY)
+//    @JoinTable(
+//            name = "student",
+//            joinColumns = { @JoinColumn(name = "user_id") },
+//            inverseJoinColumns = { @JoinColumn(name = "pizza_id") }
+//    )
+//    @ManyToOne(optional = false) // Correto
+//    @JoinColumn(name = "rut")
+//    private Collection<Student> students = new ArrayList<>();
+
+    //    @ManyToOne(optional = false) // Correto
+//    @JoinColumn(name = "rut")
+
+//    @OneToMany(cascade={CascadeType.PERSIST, CascadeType.MERGE,
+//            CascadeType.REFRESH}, orphanRemoval=true)
+//    @OneToMany(mappedBy = "course")
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "course")
+    private List<Student> students;
 
     public Course() {
     }
@@ -58,4 +87,21 @@ public class Course {
     public void setStudents(List<Student> students) {
         this.students = students;
     }
+
+//    public Collection<Student> getStudents() {
+//        return students;
+//    }
+//
+//    public void setStudents(Collection<Student> students) {
+//        this.students = students;
+//    }
+
+
+//    public List<Student> getStudents() {
+//        return students;
+//    }
+//
+//    public void setStudents(List<Student> students) {
+//        this.students = students;
+//    }
 }

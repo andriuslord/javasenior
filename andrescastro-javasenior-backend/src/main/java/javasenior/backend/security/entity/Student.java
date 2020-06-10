@@ -1,18 +1,21 @@
 package javasenior.backend.security.entity;
 
+import javasenior.backend.entity.Course;
+
 import javax.validation.constraints.Min;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Collection;
 
 @Entity
 public class Student {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(unique=true)
     @NotNull
     private String rut;
+
     @NotNull
     private String name;
     @NotNull
@@ -95,4 +98,15 @@ public class Student {
     public void setPassword(String password) {
         this.password = password;
     }
+
+//    @OneToMany(mappedBy = "students")
+//    private Collection<Course> course;
+//
+//    public Collection<Course> getCourse() {
+//        return course;
+//    }
+//
+//    public void setCourse(Collection<Course> course) {
+//        this.course = course;
+//    }
 }
