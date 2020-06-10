@@ -26,9 +26,6 @@ public class Student {
     private String nameUser;
     @NotNull
     private String password;
-    @OneToMany(cascade={CascadeType.PERSIST, CascadeType.MERGE,
-            CascadeType.REFRESH}, orphanRemoval=true)
-    private List<Course> courses = new ArrayList<>();
 
     public Student() {
     }
@@ -98,13 +95,5 @@ public class Student {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public List<Course> getCourses() {
-        return courses;
-    }
-
-    public void setCourses(List<Course> courses) {
-        this.courses = courses;
     }
 }

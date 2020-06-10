@@ -1,6 +1,10 @@
 package javasenior.backend.entity;
 
+import javasenior.backend.security.entity.Student;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Course {
@@ -10,6 +14,9 @@ public class Course {
     private String name;
     @Column(length = 4)
     private String code;
+    @OneToMany(cascade={CascadeType.PERSIST, CascadeType.MERGE,
+            CascadeType.REFRESH}, orphanRemoval=true)
+    private List<Student> students = new ArrayList<>();
 
 
     public Course() {
@@ -44,4 +51,11 @@ public class Course {
         this.code = code;
     }
 
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<Student> students) {
+        this.students = students;
+    }
 }

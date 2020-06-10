@@ -42,14 +42,15 @@ public class StudentService {
         return studentRepository.findAll();
     }
 
-    public Course saveCourse(Course course, Student student) {
+    public Course saveCourse(Course course, List<Student> student) {
         this.courseRepository.save(course);
-        Student studentBuyer = this.studentRepository.findByName(student.getNameUser());
+     //   this.studentRepository.save(student);
+        List<Student> studentBuyer = this.studentRepository.findByName(student);
         List<Course> courses = new ArrayList<>();
         courses.add(course);
-        studentBuyer.getCourses().addAll(courses);
+        course.setStudents(student);
+      //  studentBuyer.getCourses().addAll(courses);
 
-        this.studentRepository.save(studentBuyer);
         return course;
 
     }

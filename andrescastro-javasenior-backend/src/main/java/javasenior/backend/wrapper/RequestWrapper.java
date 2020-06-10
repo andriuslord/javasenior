@@ -3,17 +3,19 @@ package javasenior.backend.wrapper;
 import javasenior.backend.entity.Course;
 import javasenior.backend.security.entity.Student;
 
+import java.util.List;
+
 
 public class RequestWrapper {
 
-    Student student;
+    List<Student> student;
     Course course;
 
-    public Student getStudent() {
+    public List<Student> getStudent() {
         return student;
     }
 
-    public void setStudent(Student student) {
+    public void setStudent(List<Student> student) {
         this.student = student;
     }
 

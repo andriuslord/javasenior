@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CourseService} from '../service/course.service';
 import {AppService} from '../service/app.services';
 import {Course} from '../models/course';
@@ -17,7 +17,7 @@ import {AuthService} from "../service/auth.service";
 })
 export class NewCourseComponent implements OnInit {
 
-  @Input() students: NewStudent[];
+  student: NewStudent[];
   name = '';
   code = '';
   rut = '';
@@ -39,7 +39,7 @@ export class NewCourseComponent implements OnInit {
   listar(): void {
     this.studentService.list().subscribe(
       data => {
-        this.students = data;
+        this.student = data;
       },
       err => {
         console.log(err);
@@ -49,12 +49,12 @@ export class NewCourseComponent implements OnInit {
 
   crearCurso(): void {
 
-    let studs = this.students;
+    let student = this.student;
     const course = new Course(this.name, this.code);
 
     let req = {
       course: course,
-      students: studs
+      student: student
     }
 
 
