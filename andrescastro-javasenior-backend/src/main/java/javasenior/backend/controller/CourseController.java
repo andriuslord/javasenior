@@ -4,7 +4,6 @@ import javasenior.backend.dto.message;
 import javasenior.backend.dto.CourseDto;
 import javasenior.backend.entity.Course;
 
-import javasenior.backend.security.entity.Student;
 import javasenior.backend.security.service.StudentService;
 import javasenior.backend.service.CourseService;
 

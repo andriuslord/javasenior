@@ -1,12 +1,8 @@
 package javasenior.backend.entity;
 
-import com.fasterxml.jackson.annotation.*;
-import javasenior.backend.security.entity.Student;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+
 
 @Entity
 

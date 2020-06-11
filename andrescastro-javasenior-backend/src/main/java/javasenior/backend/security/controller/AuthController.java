@@ -88,7 +88,6 @@ public class AuthController {
 
     @PostMapping(path = "/create", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public GenericWrapper<Course> saveCourse(@RequestBody RequestWrapper requestWrapper) {
-  // public GenericWrapper<Course>  create(@RequestBody Course course, Student students) {
 
 
         Course course = requestWrapper.getCourse();
