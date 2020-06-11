@@ -7,6 +7,7 @@ import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {NewStudent} from "../models/new-student";
 import {AuthService} from "../service/auth.service";
+import { TokenService } from '../service/token.service';
 
 @Component({
   selector: 'app-new-course',
@@ -19,9 +20,12 @@ export class NewCourseComponent implements OnInit {
   student: NewStudent[];
   name = '';
   code = '';
-  rut = '';
+  isLogged = false;
+  nameUser = '';
+  estudianteCurso;
 
   constructor(
+    private tokenService: TokenService,
     private studentService: AuthService,
     private formBuilder: FormBuilder,
     private courseService: CourseService,
@@ -31,14 +35,37 @@ export class NewCourseComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+      this.nameUser = this.tokenService.getUserName();
+    } else {
+      this.isLogged = false;
+      this.nameUser = '';
+
+    }
     this.listar();
   }
 
   listar(): void {
+
     this.studentService.list().subscribe(
+
       data => {
         this.student = data;
+        if(this.student)
+        {
+
+          for (let i = 0; i <this.student.length; i++) {
+
+            if (this.student[i].nameUser == this.nameUser)
+            {
+              this.estudianteCurso = this.student[i]
+            }
+          }
+
+        }
       },
+
       err => {
         console.log(err);
       }
@@ -47,12 +74,13 @@ export class NewCourseComponent implements OnInit {
 
   crearCurso(): void {
 
-    let student = this.student;
+    let student = this.estudianteCurso;
     const course = new Course(this.name, this.code);
 
     let req = {
       course: course,
-      student: student
+      student:student
+
     }
 
 
