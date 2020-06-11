@@ -92,8 +92,7 @@ public class AuthController {
 
 
         Course course = requestWrapper.getCourse();
-        List<Student> student = requestWrapper.getStudent();
-        System.out.println("course = " + course.getName() + ", student = " + student.toArray());
+        Student student = requestWrapper.getStudent();
         GenericWrapper<Course> wrapper = new GenericWrapper<>();
         try {
             setResponse(wrapper, this.studentService.saveCourse(course,student));

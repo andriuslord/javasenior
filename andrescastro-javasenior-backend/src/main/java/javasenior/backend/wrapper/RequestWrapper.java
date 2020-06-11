@@ -3,20 +3,21 @@ package javasenior.backend.wrapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import javasenior.backend.entity.Course;
 import javasenior.backend.security.entity.Student;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 
 import java.util.List;
 
-@JsonDeserialize
+@ControllerAdvice
 public class RequestWrapper {
 
-    List<Student> student;
+    Student student;
     Course course;
 
-    public List<Student> getStudent() {
+    public Student getStudent() {
         return student;
     }
 
-    public void setStudent(List<Student> student) {
+    public void setStudent(Student student) {
         this.student = student;
     }
 

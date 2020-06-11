@@ -9,13 +9,10 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id"
-)
+
 public class Course {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
 
     private String name;
@@ -23,12 +20,6 @@ public class Course {
     @Column(length = 4)
     private String code;
 
-@JsonProperty
-@OneToMany(mappedBy = "course", fetch=FetchType.EAGER)
-    //@OneToMany(cascade = CascadeType.ALL, mappedBy = "course")
-@JsonBackReference
-@JsonIgnore
-    private List<Student> students;
 
     public Course() {
     }
@@ -60,14 +51,6 @@ public class Course {
 
     public void setCode(String code) {
         this.code = code;
-    }
-
-    public List<Student> getStudents() {
-        return students;
-    }
-
-    public void setStudents(List<Student> students) {
-        this.students = students;
     }
 
 

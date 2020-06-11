@@ -1,19 +1,19 @@
 package javasenior.backend.security.entity;
 
 import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import javasenior.backend.entity.Course;
 
 import javax.validation.constraints.Min;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id"
-)
+@JsonDeserialize
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,6 +34,9 @@ public class Student {
     private String nameUser;
     @NotNull
     private String password;
+    @OneToMany(cascade={CascadeType.PERSIST, CascadeType.MERGE,
+            CascadeType.REFRESH}, orphanRemoval=true)
+    private List<Course> courses = new ArrayList<>();
 
     public Student() {
     }
@@ -105,29 +108,11 @@ public class Student {
         this.password = password;
     }
 
-    @ManyToOne(
-            fetch = FetchType.LAZY
-    )
-    @JsonBackReference
-    @JoinColumn(name = "course_id")
-    private Course course;
-
-    public Course getCourse() {
-        return course;
-    }
-    @JsonBackReference
-    public void setCourse(Course course) {
-        this.course = course;
+    public List<Course> getCourses() {
+        return courses;
     }
 
-    //    @OneToMany(mappedBy = "students")
-//    private Collection<Course> course;
-//
-//    public Collection<Course> getCourse() {
-//        return course;
-//    }
-//
-//    public void setCourse(Collection<Course> course) {
-//        this.course = course;
-//    }
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
+    }
 }
