@@ -56,6 +56,8 @@ public class AuthController {
             return new ResponseEntity(new message("that nameUser already exists"), HttpStatus.BAD_REQUEST);
         if(studentService.existsByRut(newStudent.getRut()))
             return new ResponseEntity(new message("that rut already exists"), HttpStatus.BAD_REQUEST);
+        if((newStudent.getAge() < 18))
+            return new ResponseEntity(new message("Age should not be less than 18"), HttpStatus.BAD_REQUEST);
         Student student =
                 new Student(newStudent.getRut(),newStudent.getName(),newStudent.getLastName(),newStudent.getAge(), newStudent.getNameUser(),
                         passwordEncoder.encode(newStudent.getPassword()));
