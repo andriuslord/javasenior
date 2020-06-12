@@ -1,20 +1,16 @@
 package javasenior.backend.security.controller;
 
-import javasenior.backend.dto.CourseDto;
 import javasenior.backend.dto.message;
 import javasenior.backend.entity.Course;
 import javasenior.backend.security.dto.JwtDto;
 import javasenior.backend.security.dto.LoginStudent;
 import javasenior.backend.security.dto.NewStudent;
-import javasenior.backend.security.entity.MainStudent;
 import javasenior.backend.security.entity.Student;
 import javasenior.backend.security.jwt.JwtProvider;
-import javasenior.backend.security.repository.StudentRepository;
 import javasenior.backend.security.service.StudentService;
 import javasenior.backend.service.CourseService;
 import javasenior.backend.wrapper.GenericWrapper;
 import javasenior.backend.wrapper.RequestWrapper;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -57,7 +53,7 @@ public class AuthController {
         if(bindingResult.hasErrors())
             return new ResponseEntity(new message("email inválid"), HttpStatus.BAD_REQUEST);
         if(studentService.existsByNameStudent(newStudent.getNameUser()))
-            return new ResponseEntity(new message("that name already exists"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new message("that nameUser already exists"), HttpStatus.BAD_REQUEST);
         if(studentService.existsByRut(newStudent.getRut()))
             return new ResponseEntity(new message("that rut already exists"), HttpStatus.BAD_REQUEST);
         Student student =
@@ -92,6 +88,8 @@ public class AuthController {
 
         Course course = requestWrapper.getCourse();
         Student student = requestWrapper.getStudent();
+
+
         GenericWrapper<Course> wrapper = new GenericWrapper<>();
         try {
             setResponse(wrapper, this.studentService.saveCourse(course,student));
