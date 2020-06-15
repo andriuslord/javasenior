@@ -21,6 +21,7 @@ import {LoginComponent} from './authStudent/login.component';
 import {RegisterComponent} from './authStudent/register.component';
 import {MenuComponent} from './menu/menu.component';
 import {IndexComponent} from './index/index.component';
+import {CourseStudentComponent} from './course-student/course-student.component';
 import {Ng2Rut} from 'ng2-rut';
 
 
@@ -32,6 +33,7 @@ import {Ng2Rut} from 'ng2-rut';
     NewCourseComponent,
     EditCourseComponent,
     StudentListComponent,
+    CourseStudentComponent,
     LoginComponent,
     RegisterComponent,
     MenuComponent,
