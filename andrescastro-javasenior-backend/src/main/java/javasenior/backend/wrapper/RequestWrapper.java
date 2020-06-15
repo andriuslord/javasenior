@@ -1,11 +1,8 @@
 package javasenior.backend.wrapper;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import javasenior.backend.entity.Course;
 import javasenior.backend.security.entity.Student;
 import org.springframework.web.bind.annotation.ControllerAdvice;
-
-import java.util.List;
 
 @ControllerAdvice
 public class RequestWrapper {

@@ -2,7 +2,6 @@ package javasenior.backend.security.service;
 
 import javasenior.backend.entity.Course;
 import javasenior.backend.repository.CourseRepository;
-import javasenior.backend.security.dto.NewStudent;
 import javasenior.backend.security.entity.Student;
 import javasenior.backend.security.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,6 +38,7 @@ public class StudentService {
     }
 
     public List<Student> list(){
+
         return studentRepository.findAll();
     }
 
@@ -47,6 +46,7 @@ public class StudentService {
         this.courseRepository.save(course);
         Student studentBuyer = this.studentRepository.findByName(student.getName());
 
+         student.getCourses();
         List<Course> courses = new ArrayList<>();
         courses.add(course);
         studentBuyer.getCourses().addAll(courses);

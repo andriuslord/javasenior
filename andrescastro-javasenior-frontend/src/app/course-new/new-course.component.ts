@@ -59,7 +59,7 @@ export class NewCourseComponent implements OnInit {
 
             if (this.student[i].nameUser == this.nameUser)
             {
-              this.estudianteCurso = this.student[i]
+              this.estudianteCurso = this.student[i];
             }
           }
 
@@ -89,7 +89,7 @@ export class NewCourseComponent implements OnInit {
         this.toastr.success('Created Course', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
-        this.router.navigate(['/list']);
+        this.router.navigate(['/courseStudent']);
       },
       err => {
         this.toastr.error(err.error.mensaje, 'Fail', {

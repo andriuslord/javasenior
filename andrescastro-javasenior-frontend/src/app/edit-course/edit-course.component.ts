@@ -42,7 +42,7 @@ export class EditCourseComponent implements OnInit {
         this.toastr.success('updated Course', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
-        this.router.navigate(['/list']);
+        this.router.navigate(['/courseStudent']);
       },
       err => {
         this.toastr.error(err.error.mensaje, 'Fail', {

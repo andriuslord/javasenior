@@ -7,7 +7,8 @@ import { EditCourseComponent } from './edit-course/edit-course.component';
 import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './authStudent/login.component';
 import { RegisterComponent } from './authStudent/register.component';
-import {StudentListComponent} from "./authStudent/student-list.component";
+import {StudentListComponent} from './authStudent/student-list.component';
+import {CourseStudentComponent} from './course-student/course-student.component';
 
 
 
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'listStudent', component: StudentListComponent, },
   { path: 'detail/:id', component: CourseDetailComponent, },
   { path: 'new', component: NewCourseComponent,  },
+  { path: 'courseStudent', component: CourseStudentComponent,  },
   { path: 'edit/:id', component: EditCourseComponent, },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];

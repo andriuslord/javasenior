@@ -24,7 +24,6 @@ public class CourseController {
 
     @Autowired
     CourseService courseService;
-    StudentService studentService;
 
     @GetMapping("/list")
     public ResponseEntity<List<Course>> list(){
@@ -37,6 +36,7 @@ public class CourseController {
         if(!courseService.existsById(id))
             return new ResponseEntity(new message("does not exist"), HttpStatus.NOT_FOUND);
         Course course = courseService.getOne(id).get();
+        
         return new ResponseEntity(course, HttpStatus.OK);
     }
 

@@ -13,6 +13,7 @@ export class CourseDetailComponent implements OnInit {
 
   course: Course = null;
 
+
   constructor(
     private courseService: CourseService,
     private activatedRoute: ActivatedRoute,
@@ -36,7 +37,7 @@ export class CourseDetailComponent implements OnInit {
   }
 
   return(): void {
-    this.router.navigate(['/list']);
+    this.router.navigate(['/courseStudent']);
   }
 
 }

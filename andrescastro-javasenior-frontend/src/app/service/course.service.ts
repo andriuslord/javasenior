@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Course } from '../models/course';
-import {JwtDTO} from "../models/jwt-dto";
 
 @Injectable({
   providedIn: 'root'
@@ -22,9 +21,9 @@ export class CourseService {
     return this.httpClient.get<Course>(this.courseURL + `detail/${id}`);
   }
 
-  public detailName(name: string): Observable<Course> {
-    return this.httpClient.get<Course>(this.courseURL + `detailname/${name}`);
-  }
+  // public courseStudent(userName: string): Observable<Course> {
+  //   return this.httpClient.get<Course>(this.createCourseURL + `courseStudent/${userName}`);
+  // }
 
   public save(req): Observable<any> {
     return this.httpClient.post<any>(this.createCourseURL + 'create', req);

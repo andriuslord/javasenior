@@ -1,10 +1,12 @@
 export class NewStudent {
+    id?: number;
     rut: string;
     name: string;
     lastName: string;
     age: number;
     nameUser: string;
     password: string;
+    courses: [];
     constructor(rut: string, name: string, lastName: string , age: number, nameUser: string , password: string) {
         this.rut = rut;
         this.name = name;

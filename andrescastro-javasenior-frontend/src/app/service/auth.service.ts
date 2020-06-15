@@ -4,7 +4,6 @@ import { NewStudent } from '../models/new-student';
 import { Observable } from 'rxjs';
 import { LoginStudent } from '../models/login-student';
 import { JwtDTO } from '../models/jwt-dto';
-import {Course} from "../models/course";
 
 @Injectable({
   providedIn: 'root'

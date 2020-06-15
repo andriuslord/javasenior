@@ -9,10 +9,13 @@
           <a class="nav-link" routerLink="/"><i class="fas fa-home"></i>Start</a>
         </li>
         <li class="nav-item" *ngIf="isLogged">
-          <a class="nav-link" routerLink="/list"><i class="far fa-list-alt"></i> Course</a>
+          <a class="nav-link" routerLink="/list"><i class="far fa-list-alt"></i> Course-List</a>
         </li>
         <li class="nav-item" *ngIf="isLogged">
-          <a class="nav-link" routerLink="/listStudent"><i class="far fa-list-alt"></i> list Student</a>
+          <a class="nav-link" routerLink="/courseStudent"><i class="far fa-list-alt"></i> Course-Student</a>
+        </li>
+        <li class="nav-item" *ngIf="isLogged">
+          <a class="nav-link" routerLink="/listStudent"><i class="far fa-list-alt"></i> list-Student</a>
         </li>
         <li class="nav-item" *ngIf="!isLogged">
             <a class="nav-link"  routerLink="/login"><i class="fas fa-sign-in-alt"></i>Log In</a>

@@ -25,6 +25,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -108,5 +109,6 @@ public class AuthController {
     public <T> void setResponse(GenericWrapper<T> wrapper, T o){
         wrapper.setData(o);
     }
+
 
 }
