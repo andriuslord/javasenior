@@ -59,20 +59,26 @@ export class CourseListComponent implements OnInit {
           this.courseService.list().subscribe(
             // tslint:disable-next-line:no-shadowed-variable
             data => {
-              this.courses = data;
-              if (this.courses) {
-                for (let i = 0; i < this.courses.length; i++) {
+              // this.courses = data;
 
-                  if (this.courses[i] == this.estudianteCurso.courses[i]) {
-                    if (this.estudianteCurso.courses.length > 1) {
-                      this.courses = [];
-                    } else {
-                      this.estudianteCurso.courses = this.courses[i];
-
-                    }
-                  }
-                }
+              if(this.estudianteCurso.courses > 0){
+                this.courses = data;
+                this.estudianteCurso.courses = this.courses;
               }
+
+              // if (this.courses) {
+              //   for (let i = 0; i < this.courses.length; i++) {
+              //
+              //     if (this.courses[i] == this.estudianteCurso.courses[i]) {
+              //       if (this.estudianteCurso.courses.length > 1) {
+              //         this.courses = [];
+              //       } else {
+              //         this.estudianteCurso.courses = this.courses[i];
+              //
+              //       }
+              //     }
+              //   }
+              // }
             },
             err => {
               console.log(err);
