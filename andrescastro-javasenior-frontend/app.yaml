@@ -1,9 +1,13 @@
 runtime: python27
 api_version: 1
-threadsafe: true
+threadsafe: yes
+
+
 handlers:
+
   - url: /
-  static_files: crudFRONT/index.html
-  upload: crudFRONT/index.html
+    static_files: dist/crudFRONT/index.html
+    upload: dist/crudFRONT/index.html
   - url: /
-static_dir: crudFRONT
+    static_dir: dist/crudFRONT
+
