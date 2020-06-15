@@ -12,7 +12,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let course of courses | paginate: {itemsPerPage: 5, currentPage: pageActual}; index as i">
+      <tr *ngFor="let course of courses | paginate : {itemsPerPage: 5, currentPage: pageActual}">
+<!--      <tr *ngFor="let course of courses">-->
         <td>{{course.id}}</td>
         <td>{{course.name}}</td>
         <td>{{course.code}}</td>
