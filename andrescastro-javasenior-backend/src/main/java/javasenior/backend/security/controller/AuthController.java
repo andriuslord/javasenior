@@ -85,6 +85,12 @@ public class AuthController {
         return new ResponseEntity(list, HttpStatus.OK);
     }
 
+    @GetMapping("/test")
+    public ResponseEntity<String> test(){
+        String response = "Hola";
+        return new ResponseEntity(response, HttpStatus.OK);
+    }
+
     @PostMapping(path = "/create", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public GenericWrapper<Course> saveCourse(@RequestBody RequestWrapper requestWrapper) {
 

@@ -4,7 +4,6 @@ threadsafe: yes
 
 
 handlers:
-
   - url: /
     static_files: dist/crudFRONT/index.html
     upload: dist/crudFRONT/index.html
