@@ -52,7 +52,7 @@ public class AuthController {
     @PostMapping("/new")
     public ResponseEntity<?> nuevo(@Valid @RequestBody NewStudent newStudent, BindingResult bindingResult){
         if(bindingResult.hasErrors())
-            return new ResponseEntity(new message("email inválid"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new message("inválid"), HttpStatus.BAD_REQUEST);
         if(studentService.existsByNameStudent(newStudent.getNameUser()))
             return new ResponseEntity(new message("that nameUser already exists"), HttpStatus.BAD_REQUEST);
         if(studentService.existsByRut(newStudent.getRut()))

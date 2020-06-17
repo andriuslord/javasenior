@@ -1,6 +1,7 @@
 package javasenior.backend.security.dto;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 
 public class NewStudent {
@@ -11,7 +12,7 @@ public class NewStudent {
     private String name;
     @NotBlank
     private String lastName;
-    @NotBlank
+    @NotNull
     @Min(value = 18, message = "Age should not be less than 18")
     private int age;
     @NotBlank
