@@ -1,7 +1,7 @@
 package javasenior.backend.security;
 
 import javasenior.backend.security.jwt.JwtEntryPoint;
-//import javasenior.backend.security.jwt.JwtTokenFilter;
+import javasenior.backend.security.jwt.JwtTokenFilter;
 import javasenior.backend.security.service.StudentDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -28,10 +28,10 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
     @Autowired
     JwtEntryPoint jwtEntryPoint;
 
-//    @Bean
-//    public JwtTokenFilter jwtTokenFilter(){
-//        return new JwtTokenFilter();
-//    }
+    @Bean
+    public JwtTokenFilter jwtTokenFilter(){
+        return new JwtTokenFilter();
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder(){
@@ -64,6 +64,6 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
                 .exceptionHandling().authenticationEntryPoint(jwtEntryPoint)
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-//        http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 }
